@@ -1,0 +1,20 @@
+﻿@page "/details/{Id}"
+@using MovieScoutShared;
+
+
+@if (movie != null)
+{
+    <div class="row" style="width:100%;">
+        <div class="col col-lg-3">
+            <img class="card-img-top" style="max-width: 20rem" src="@($"https://image.tmdb.org/t/p/w500{movie.poster_path}")" alt="Card image cap">
+        </div>
+        <div class="col col-lg-9">
+            <h2><strong>@movie.title</strong> (@movie.release_date.Substring(0, 4))</h2>
+            <p>@movie.release_date <span>&#8226;</span> @genres <span>&#8226;</span> @runtime</p>
+            <p><i class="fa fa-star" aria-hidden="true" style="color: #F5DE50;"></i>  @Math.Round(movie.vote_average, 1) <span class="grayout">Vote Count: @movie.vote_count</span></p>
+            <p class="grayout"> @movie.tagline </p>
+            <h4>Overview</h4>
+            <p>@movie.overview</p>
+        </div>
+    </div>
+}
