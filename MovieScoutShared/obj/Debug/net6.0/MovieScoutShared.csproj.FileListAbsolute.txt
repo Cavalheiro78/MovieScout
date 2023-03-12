@@ -10,3 +10,15 @@ C:\Users\Pedro\source\repos\MovieScout\MovieScoutShared\obj\Debug\net6.0\MovieSc
 C:\Users\Pedro\source\repos\MovieScout\MovieScoutShared\obj\Debug\net6.0\refint\MovieScoutShared.dll
 C:\Users\Pedro\source\repos\MovieScout\MovieScoutShared\obj\Debug\net6.0\MovieScoutShared.pdb
 C:\Users\Pedro\source\repos\MovieScout\MovieScoutShared\obj\Debug\net6.0\ref\MovieScoutShared.dll
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\bin\Debug\net6.0\MovieScoutShared.deps.json
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\bin\Debug\net6.0\MovieScoutShared.dll
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\bin\Debug\net6.0\MovieScoutShared.pdb
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\obj\Debug\net6.0\MovieScoutShared.csproj.AssemblyReference.cache
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\obj\Debug\net6.0\MovieScoutShared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\obj\Debug\net6.0\MovieScoutShared.AssemblyInfoInputs.cache
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\obj\Debug\net6.0\MovieScoutShared.AssemblyInfo.cs
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\obj\Debug\net6.0\MovieScoutShared.csproj.CoreCompileInputs.cache
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\obj\Debug\net6.0\MovieScoutShared.dll
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\obj\Debug\net6.0\refint\MovieScoutShared.dll
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\obj\Debug\net6.0\MovieScoutShared.pdb
+C:\Users\Pedro\source\repos\MovieScout - Copy\MovieScoutShared\obj\Debug\net6.0\ref\MovieScoutShared.dll

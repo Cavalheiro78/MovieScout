@@ -13,7 +13,11 @@ namespace MovieScout.Pages
         public string? searchValue { get; set; }
         public async Task SearchContentAsync() 
         {
-            movies = await MovieDataService.GetSearchResults(searchValue);
+            if (!string.IsNullOrEmpty(searchValue))
+            {
+                Page page = await MovieDataService.GetSearchResults(searchValue);
+                movies = page.results;
+            }
         }
 
         async Task AddRemoveToFavoritesAsync(int id)

@@ -15,12 +15,14 @@ namespace MovieScout.Pages
         public IMovieDataService MovieDataService { get; set; }
         protected override async Task OnInitializedAsync()
         {   
-            Movies = (await MovieDataService.GetTrendingMovies()).ToList();
+            Page page = await MovieDataService.GetTrendingMovies();
+            Movies = page.results.ToList();
         }
 
         async Task ChangeContentAsync(ChangeEventArgs e)
         {
-            Movies = (await MovieDataService.GetContent(e.Value.ToString())).ToList();
+            Page page = await MovieDataService.GetContent(e.Value.ToString());
+            Movies = page.results.ToList();
         }
 
         async Task AddRemoveToFavoritesAsync(int id)

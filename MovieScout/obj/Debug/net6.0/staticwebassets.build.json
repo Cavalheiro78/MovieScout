@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4wS/Ep2OIKNzia+bBVOw/6CUNulVThmN2D5UtG1UtSI=",
+  "Hash": "TtCr2dsA9raTbheYAoySvq4MR0YmEZw7ThzCBplwOw4=",
   "Source": "MovieScout",
   "BasePath": "/",
   "Mode": "Root",
@@ -763,6 +763,40 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Pedro\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.14\\runtimes\\browser-wasm\\lib\\net6.0\\netstandard.dll"
+    },
+    {
+      "Identity": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Refit.dll",
+      "SourceId": "MovieScout",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Refit.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Pedro\\.nuget\\packages\\refit\\6.3.2\\lib\\net6.0\\Refit.dll"
+    },
+    {
+      "Identity": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Refit.HttpClientFactory.dll",
+      "SourceId": "MovieScout",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Refit.HttpClientFactory.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Pedro\\.nuget\\packages\\refit.httpclientfactory\\6.3.2\\lib\\net6.0\\Refit.HttpClientFactory.dll"
     },
     {
       "Identity": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.AppContext.dll",
@@ -4913,6 +4947,23 @@
       "OriginalItemSpec": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Text.Json.dll"
     },
     {
+      "Identity": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\obj\\Debug\\net6.0\\build-gz\\IDNYO9qH.gz",
+      "SourceId": "MovieScout",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Refit.HttpClientFactory.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Refit.HttpClientFactory.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Refit.HttpClientFactory.dll"
+    },
+    {
       "Identity": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\obj\\Debug\\net6.0\\build-gz\\IgYLrsb+.gz",
       "SourceId": "MovieScout",
       "SourceType": "Computed",
@@ -6390,6 +6441,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Security.Cryptography.Cng.dll"
+    },
+    {
+      "Identity": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\obj\\Debug\\net6.0\\build-gz\\TvkwxVmm.gz",
+      "SourceId": "MovieScout",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Refit.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Refit.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Refit.dll"
     },
     {
       "Identity": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\obj\\Debug\\net6.0\\build-gz\\Txa2HPhS.gz",

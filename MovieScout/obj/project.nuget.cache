@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Dsj1UxRWBnYOuHxTZh7aQFMutUjsJlJ8ZPo2rzufIzeiQFJYmO7Sm65ilcxSIEZY730jePkwpZiW8jE/asIoPg==",
+  "dgSpecHash": "IvUo5qqaGPxb02dahMeZlu6uuxQ7prYshrJdp6OeFDoMSKnZVI5ttkDqpM7tiyvanmtAc2aiM3S1+78kCxOCGg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\MovieScout.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,10 @@
     "C:\\Users\\Pedro\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\microsoft.jsinterop\\6.0.13\\microsoft.jsinterop.6.0.13.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.13\\microsoft.jsinterop.webassembly.6.0.13.nupkg.sha512",
+    "C:\\Users\\Pedro\\.nuget\\packages\\refit\\6.3.2\\refit.6.3.2.nupkg.sha512",
+    "C:\\Users\\Pedro\\.nuget\\packages\\refit.httpclientfactory\\6.3.2\\refit.httpclientfactory.6.3.2.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
+    "C:\\Users\\Pedro\\.nuget\\packages\\system.net.http.json\\6.0.0\\system.net.http.json.6.0.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",

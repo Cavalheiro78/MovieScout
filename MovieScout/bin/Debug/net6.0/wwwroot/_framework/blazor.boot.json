@@ -31,6 +31,8 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-hXhFRImkOdXevYqMqYRLOzgHZWPq8ZXMXtS9J6jFTqM=",
       "Microsoft.JSInterop.dll": "sha256-ZMyJ9hhGB\/8OncNBBf+NtPLM17QgBVDUTx3QqpVY1cg=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-FXXasKSSy3z8h8Rlbb5yEU1ZTjNHPkfS6OXGKVcHqkc=",
+      "Refit.dll": "sha256-SwBG7gNBJMv8tY8JbzLIzpzNzjZUkdJE48Q9uCysd6g=",
+      "Refit.HttpClientFactory.dll": "sha256-mlRAv\/GdF\/SbM7rrI7XF0wFMcdkzA2X6qS+Io4jGn8M=",
       "System.IO.Pipelines.dll": "sha256-6+E55JXedimdw1c1bDtVg4K7XuWjVWVTifH8QpfzXSY=",
       "Microsoft.CSharp.dll": "sha256-OKuFCFUIO1maO4LkERFTCyW1zzuZkBPozF2lE9rLC0c=",
       "Microsoft.VisualBasic.Core.dll": "sha256-ts1\/lKJdGrBOKjjBDuLBk0y8bNG2IlxYLHh\/3wDke1A=",
@@ -198,15 +200,15 @@
       "mscorlib.dll": "sha256-mvS0gmCEk3NPPJPuIX5UWyIRyNxQ4WYYES39CBT9CK0=",
       "netstandard.dll": "sha256-6NXprR7wyUZxpdXxaSPHSoC5uOL5UCc7bsZG3TSuVxE=",
       "System.Private.CoreLib.dll": "sha256-igtwZSR0\/lrbmwL\/XiTsEkIeSL+736GHTZPReYguZCQ=",
-      "MovieScoutShared.dll": "sha256-j97v1mGxZ2JTwAbeWo87ky0X0v2IurBkKSZTBwAyeAg=",
-      "MovieScout.dll": "sha256-LeiGcLtE+rximOiBZ9b\/Gopm9mP0QtXlmXDL2g8XyKU="
+      "MovieScoutShared.dll": "sha256-qpqbxTZNWW775efgBTPl+ABYApJpGBnt8Ci2Han1fwk=",
+      "MovieScout.dll": "sha256-jEbFuJJP4a2JOqOOS8C0eC2zq2K64otxCdHfnc72MMo="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "MovieScoutShared.pdb": "sha256-skSEWi5Rk\/\/fZYZ870ehxouBI4fNUsEYbyb+PxE0d30=",
-      "MovieScout.pdb": "sha256-Ry0d3NQ1DZ7heUpqUZIBulILNogJlYPSF+Ts4aD7vvE="
+      "MovieScoutShared.pdb": "sha256-bHY9\/3rNByJkJEY9jzrI0Y5KcH5OfhNd88JBj8Qq3Mo=",
+      "MovieScout.pdb": "sha256-6iXYkDuImPsYUkexjB3JBN2x1zKmCsu7PmOlwvkIgJo="
     },
     "runtime": {
       "dotnet.6.0.14.x2me32x7pt.js": "sha256-54cJ6JdGhGbKaLWxHfRYzYbuyRq2wlK\/ZDzfSXD3FEs=",
