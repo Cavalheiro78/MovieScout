@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TtCr2dsA9raTbheYAoySvq4MR0YmEZw7ThzCBplwOw4=",
+  "Hash": "yltwJaY2d+NhSxkr1zb2mUytsDykd7dY6U4eugRB6ho=",
   "Source": "MovieScout",
   "BasePath": "/",
   "Mode": "Root",
@@ -7036,6 +7036,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MovieScout.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\wwwroot\\appsettings.json",
+      "SourceId": "MovieScout",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "appsettings.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "settings",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\appsettings.json"
     },
     {
       "Identity": "C:\\Users\\Pedro\\source\\repos\\MovieScout\\MovieScout\\wwwroot\\css\\app.css",

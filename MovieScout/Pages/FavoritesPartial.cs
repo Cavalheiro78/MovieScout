@@ -16,7 +16,6 @@ namespace MovieScout.Pages
             json = await localStorage.GetItemAsync<string>("movies");
             if (json != null)
                 movies = JsonSerializer.Deserialize<List<Movie>>(json);
-
         }
 
         public void ChangeContent(ChangeEventArgs e)
@@ -34,30 +33,5 @@ namespace MovieScout.Pages
                     break;
             }
         }
-
-        async Task AddRemoveToFavoritesAsync(int id)
-        {
-            Movie movie = await MovieDataService.GetMovieDetails(id);
-
-            json = await localStorage.GetItemAsync<string>("movies");
-
-            if (json != null)
-            {
-                movies = JsonSerializer.Deserialize<List<Movie>>(json);
-                if (movies.Any(m => m.id == movie.id))
-                    movies = movies.Where(m => m.id != movie.id).ToList();
-                else
-                    movies.Add(movie);
-            }
-            else
-            {
-                movies = new List<Movie>();
-                movies.Add(movie);
-            }
-
-            await localStorage.SetItemAsync("movies", movies);
-        }
-
-        
     }
 }

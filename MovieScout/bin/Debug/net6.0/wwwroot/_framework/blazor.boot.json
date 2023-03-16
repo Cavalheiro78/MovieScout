@@ -1,6 +1,8 @@
 {
   "cacheBootResources": true,
-  "config": [ ],
+  "config": [
+    "appsettings.json"
+  ],
   "debugBuild": true,
   "entryAssembly": "MovieScout",
   "icuDataMode": 0,
@@ -200,15 +202,15 @@
       "mscorlib.dll": "sha256-mvS0gmCEk3NPPJPuIX5UWyIRyNxQ4WYYES39CBT9CK0=",
       "netstandard.dll": "sha256-6NXprR7wyUZxpdXxaSPHSoC5uOL5UCc7bsZG3TSuVxE=",
       "System.Private.CoreLib.dll": "sha256-igtwZSR0\/lrbmwL\/XiTsEkIeSL+736GHTZPReYguZCQ=",
-      "MovieScoutShared.dll": "sha256-qpqbxTZNWW775efgBTPl+ABYApJpGBnt8Ci2Han1fwk=",
-      "MovieScout.dll": "sha256-jEbFuJJP4a2JOqOOS8C0eC2zq2K64otxCdHfnc72MMo="
+      "MovieScoutShared.dll": "sha256-j97v1mGxZ2JTwAbeWo87ky0X0v2IurBkKSZTBwAyeAg=",
+      "MovieScout.dll": "sha256-mbECDT9wDMdF1KXZHh1GNV3izBxmfSxYcdCxzW8F234="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "MovieScoutShared.pdb": "sha256-bHY9\/3rNByJkJEY9jzrI0Y5KcH5OfhNd88JBj8Qq3Mo=",
-      "MovieScout.pdb": "sha256-6iXYkDuImPsYUkexjB3JBN2x1zKmCsu7PmOlwvkIgJo="
+      "MovieScoutShared.pdb": "sha256-skSEWi5Rk\/\/fZYZ870ehxouBI4fNUsEYbyb+PxE0d30=",
+      "MovieScout.pdb": "sha256-K+zyTNM+XdHCoros410JiW90CzB6ME3Rm8cX6+y8TWE="
     },
     "runtime": {
       "dotnet.6.0.14.x2me32x7pt.js": "sha256-54cJ6JdGhGbKaLWxHfRYzYbuyRq2wlK\/ZDzfSXD3FEs=",

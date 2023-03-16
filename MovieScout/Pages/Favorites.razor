@@ -18,25 +18,7 @@
 {
     @foreach (Movie movie in movies)
     {
-            <div style="padding: 0.3rem; display: grid;" class="col">
-                <article class="card favourite" style="width: 14rem;">
-                <img class="card-img-top" src="@($"https://image.tmdb.org/t/p/w500{movie.poster_path}")" alt="Card image cap">
-                <div class="card-body">
-                    <h8 class="card-title" style="font-weight: bold;">@movie.title</h8>
-                    <div style="display: flex; flex-direction: row; height: 1.3rem">
-                        <div style="width: 15%;"><p><i class="fa fa-star" aria-hidden="true" style="color: #F5DE50;"></i></p></div>
-                        <div style="width: 60%;"><p style="font-weight: bold;">@Math.Round(movie.vote_average, 1)</p></div>
-                    </div>
-                    <div style="display: flex; flex-direction: row; height: 1.3rem;">
-                        <div style="width: 100%;"><p class="grayout">Vote Count: @movie.vote_count</p></div>
-                    </div>
-                    <a href="@($"details/{movie.id}")" class="btn btn-primary">Details</a>
-                    <button @onclick="() => AddRemoveToFavoritesAsync(movie.id)">
-                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </article>
-        </div>
+        <MovieCard movie=movie></MovieCard>
     }
 }
 </div>

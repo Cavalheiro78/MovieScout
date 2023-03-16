@@ -5,16 +5,17 @@ namespace MovieScout.Services
 {
     public interface IMovieDataService
     {
-        [Get("/trending/movie/day?api_key=42732b85a50a57a93e9344f93cee98d1")]
-        Task<Page> GetTrendingMovies();
 
-        [Get("/movie/{id}?api_key=42732b85a50a57a93e9344f93cee98d1")]
-        Task<Movie>GetMovieDetails(int id);
+        [Get("/trending/movie/day")]
+        Task<Page> GetTrendingMovies([AliasAs("api_key")] string apikey);
 
-        [Get("/trending/movie/{**s}?api_key=42732b85a50a57a93e9344f93cee98d1")]
-        Task<Page> GetContent(string s);
+        [Get("/movie/{id}")]
+        Task<Movie>GetMovieDetails(int id, [AliasAs("api_key")] string apikey);
 
-        [Get("/search/movie?api_key=42732b85a50a57a93e9344f93cee98d1&language=en-US&query={**s}&page=1&include_adult=false")]
-        Task<Page> GetSearchResults(string s);
+        [Get("/trending/movie/{**s}")]
+        Task<Page> GetContent(string s, [AliasAs("api_key")] string apikey);
+
+        [Get("/search/movie?language=en-US&include_adult=false")]
+        Task<Page> GetSearchResults([AliasAs("query")] string s, [AliasAs("page")] int i, [AliasAs("api_key")] string apikey);
     }
 }

@@ -1,6 +1,5 @@
 ﻿@page "/search"
 @using MovieScoutShared;
-@inject Blazored.LocalStorage.ILocalStorageService localStorage;
 
 <h1>Search</h1>
 
@@ -20,25 +19,20 @@
     {
         @foreach (Movie movie in movies)
         {
-            <div class="col" style="padding: 0.3rem;">
-                <div class="card" style="width: 14rem;">
-                    <img class="card-img-top" src="@($"https://image.tmdb.org/t/p/w500{movie.poster_path}")" alt="Card image cap">
-                    <div class="card-body">
-                        <h8 class="card-title" style="font-weight: bold;">@movie.title</h8>
-                        <div style="display: flex; flex-direction: row; height: 1.3rem">
-                            <div style="width: 15%;"><p><i class="fa fa-star" aria-hidden="true" style="color: #F5DE50;"></i></p></div>
-                            <div style="width: 60%;"><p style="font-weight: bold;">@Math.Round(movie.vote_average, 1)</p></div>
-                        </div>
-                        <div style="display: flex; flex-direction: row; height: 1.3rem;">
-                            <div style="width: 100%;"><p class="grayout">Vote Count: @movie.vote_count</p></div>
-                        </div>
-                        <a href="@($"details/{movie.id}")" class="btn btn-primary">Details</a>
-                        <button @onclick="() => AddRemoveToFavoritesAsync(movie.id)">
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <MovieCard movie=movie></MovieCard>
         }
     }
 </div>
+
+@if(resultsPage != null){
+    <nav>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" @onclick="() => ChangePagePrevious()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></li>
+                <li class="page-item active"><a class="page-link">@currentPage</a></li>
+            <li class="page-item"><a class="page-link" @onclick="() => ChangePageNext()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+            <li class="page-item" type="hidden"><a class="page-link" @onclick="() => ChangePagePickerVisibility()">Go to</a></li>
+        </ul>
+    </nav>
+    <input type="number" id="typeNumber" class="form-control" min="1" max="@resultsPage.total_pages" style="width:5rem; display: @pagePickerVisibility;" @bind-value="inputPageNumber" onkeypress="@EnterAsync"/>
+    <p>Total number of pages: @resultsPage.total_pages</p>
+}

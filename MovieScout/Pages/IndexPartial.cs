@@ -13,40 +13,28 @@ namespace MovieScout.Pages
         public IEnumerable<Movie> Movies { get; set; }
         [Inject]
         public IMovieDataService MovieDataService { get; set; }
+        [Inject]
+        private IConfiguration configuration { get; set; }
         protected override async Task OnInitializedAsync()
-        {   
-            Page page = await MovieDataService.GetTrendingMovies();
-            Movies = page.results.ToList();
+        {
+            try {
+
+                Page page = await MovieDataService.GetTrendingMovies(configuration["ApiKey"]);
+                if (page != null)
+                    Movies = page.results.ToList();
+                
+            } catch (Exception ex) { }
         }
 
         async Task ChangeContentAsync(ChangeEventArgs e)
         {
-            Page page = await MovieDataService.GetContent(e.Value.ToString());
-            Movies = page.results.ToList();
-        }
+            try { 
 
-        async Task AddRemoveToFavoritesAsync(int id)
-        {
-            Movie movie = await MovieDataService.GetMovieDetails(id);
+                Page page = await MovieDataService.GetContent(e.Value.ToString(), configuration["ApiKey"]);
+                if (page != null)
+                    Movies = page.results.ToList();
 
-            string json = (await localStorage.GetItemAsync<string>("movies"));
-            List<Movie> movies;
-
-            if (json != null)
-            {
-                movies = JsonSerializer.Deserialize<List<Movie>>(json);
-                if(movies.Any(m => m.id == movie.id))
-                    movies = movies.Where(m => m.id != movie.id).ToList();
-                else
-                    movies.Add(movie);
-            }
-            else
-            {
-                movies = new List<Movie>();
-                movies.Add(movie);
-            }
-            
-            await localStorage.SetItemAsync("movies", movies);
+            } catch (Exception ex) { }
         }
     }
 }

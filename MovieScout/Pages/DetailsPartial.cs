@@ -13,9 +13,11 @@ namespace MovieScout.Pages
         public string runtime { get; set; }
         [Inject]
         public IMovieDataService MovieDataService { get; set; }
+        [Inject]
+        private IConfiguration configuration { get; set; }
         protected override async Task OnInitializedAsync()
         {
-            movie = (await MovieDataService.GetMovieDetails(int.Parse(Id)));
+            movie = await MovieDataService.GetMovieDetails(int.Parse(Id), configuration["ApiKey"]);
 
             for (int i = 0; i < movie.genres.Length; i++) {
                 if (i + 1 == movie.genres.Length)
