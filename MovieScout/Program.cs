@@ -1,17 +1,40 @@
-using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.EntityFrameworkCore;
 using MovieScout;
 using MovieScout.Services;
 using Refit;
+using System.Net.Http.Headers;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
+ConfigureServices(builder.Services);
 
-builder.Services.AddBlazoredLocalStorage();
-builder.Services.AddRefitClient<IMovieDataService>().ConfigureHttpClient(c => c.BaseAddress = new Uri("https://api.themoviedb.org/3"));
+var app = builder.Build();
 
-await builder.Build().RunAsync();
+await app.RunAsync();
 
+void ConfigureServices(IServiceCollection services)
+{
+    services.AddTransient<ApiKeyHandler>();
+    services.AddRefitClient<IMovieDataService>()
+        .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:7178/api"))
+        .AddHttpMessageHandler<ApiKeyHandler>();
+}
+
+class ApiKeyHandler : DelegatingHandler
+{
+    private readonly string _apiKey;
+    public ApiKeyHandler(IConfiguration configuration)
+    {
+        _apiKey = configuration["ApiKey"];
+    }
+
+    protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
+        return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+    }
+}

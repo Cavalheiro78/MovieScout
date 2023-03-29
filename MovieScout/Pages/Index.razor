@@ -1,6 +1,5 @@
 ﻿
 @page "/"
-@using MovieScoutShared;
 
 <PageTitle>Index</PageTitle>
 
@@ -12,11 +11,12 @@
     </select>
 </div>
 <div class="row">
+
 @if (Movies != null)
 {
     @foreach (Movie movie in Movies)
     {
-        <MovieCard movie=movie></MovieCard>
+        <MovieScout.Pages.Components.MovieCard movie=movie></MovieScout.Pages.Components.MovieCard>
     }
 }
 </div>

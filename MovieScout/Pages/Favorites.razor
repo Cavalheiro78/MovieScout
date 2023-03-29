@@ -1,7 +1,5 @@
 ﻿
 @page "/favorites"
-@using MovieScoutShared;
-@inject Blazored.LocalStorage.ILocalStorageService localStorage;
 
 <h1>Favorites</h1>
 <div class="row">
@@ -18,7 +16,7 @@
 {
     @foreach (Movie movie in movies)
     {
-        <MovieCard movie=movie></MovieCard>
+            <MovieScout.Pages.Components.MovieCard movie=movie></MovieScout.Pages.Components.MovieCard>
     }
 }
 </div>

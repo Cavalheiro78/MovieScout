@@ -14,9 +14,7 @@ namespace MovieScoutShared
         public string original_title { get; set; }
         public string overview { get; set; }
         public string poster_path { get; set; }
-        public string media_type { get; set; }
         public Genre[] genres { get; set; }
-        public int[] genre_ids { get; set; }
         public int runtime { get; set; }
         public double popularity { get; set; }
         public string release_date { get; set; }

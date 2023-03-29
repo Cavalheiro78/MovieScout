@@ -1,5 +1,4 @@
 ﻿@page "/search"
-@using MovieScoutShared;
 
 <h1>Search</h1>
 
@@ -8,18 +7,18 @@
         <div class="form-outline">
             <input type="search" id="form1" style="width: 40rem" class="form-control" @bind="searchValue"/>
         </div>
-        <button type="button" class="btn btn-primary" @onclick="() => SearchContentAsync()">
+        <button type="button" class="btn btn-primary" @onclick="SearchContentAsync">
             <i class="fas fa-search"></i>
         </button>
     </div>
 </div>
 
-<div class="row">
+<div>
     @if (movies != null)
     {
         @foreach (Movie movie in movies)
         {
-            <MovieCard movie=movie></MovieCard>
+            <MovieScout.Pages.Components.MovieCard movie=movie></MovieScout.Pages.Components.MovieCard>
         }
     }
 </div>
@@ -27,10 +26,10 @@
 @if(resultsPage != null){
     <nav>
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" @onclick="() => ChangePagePrevious()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></li>
+            <li class="page-item"><a class="page-link" @onclick="ChangePagePrevious"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></li>
                 <li class="page-item active"><a class="page-link">@currentPage</a></li>
-            <li class="page-item"><a class="page-link" @onclick="() => ChangePageNext()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
-            <li class="page-item" type="hidden"><a class="page-link" @onclick="() => ChangePagePickerVisibility()">Go to</a></li>
+            <li class="page-item"><a class="page-link" @onclick="ChangePageNext"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+            <li class="page-item" type="hidden"><a class="page-link" @onclick="ChangePagePickerVisibility">Go to</a></li>
         </ul>
     </nav>
     <input type="number" id="typeNumber" class="form-control" min="1" max="@resultsPage.total_pages" style="width:5rem; display: @pagePickerVisibility;" @bind-value="inputPageNumber" onkeypress="@EnterAsync"/>
