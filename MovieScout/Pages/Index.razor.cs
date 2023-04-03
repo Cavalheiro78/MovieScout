@@ -8,11 +8,17 @@ namespace MovieScout.Pages
     {
         public List<Movie> Movies { get; set; }
         [Inject]
+        public UserInfoGlobalClass userGlobal { get; set; }
+        [Inject]
         public IMovieDataService MovieDataService { get; set; }
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
         protected override async Task OnInitializedAsync()
         {
+            if (userGlobal.Token == "")
+                NavigationManager.NavigateTo("/login");
             try {
-                Movies = await MovieDataService.GetTrendingMovies("day");
+                Movies = await MovieDataService.GetTrendingMovies("day", userGlobal.Token);
             } catch (Exception ex) { }
         }
 
@@ -20,7 +26,7 @@ namespace MovieScout.Pages
         {
             try { 
 
-                Movies = await MovieDataService.GetTrendingMovies(e.Value.ToString());
+                Movies = await MovieDataService.GetTrendingMovies(e.Value.ToString(), userGlobal.Token);
             } catch (Exception ex) { }
         }
     }

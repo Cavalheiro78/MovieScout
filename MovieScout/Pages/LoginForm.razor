@@ -1,0 +1,59 @@
+﻿@page "/login"
+
+@if(showLogin){
+    <h3>Login Page</h3>
+    <br>
+    <div class="login">
+        <form id="login" method="get" action="login.php">
+            <label>
+                <b>
+                    User Name
+                </b>
+            </label>
+            <input type="text" name="Uname" id="Uname" @bind=usernameLogin placeholder="Username">
+            <br><br>
+            <label>
+                <b>
+                    Password
+                </b>
+            </label>
+            <input type="Password" name="Pass" id="Pass" @bind=passwordLogin placeholder="Password">
+            <br><br>
+            <input onclick=@loginAsync type="button" name="log" id="log" value="Log In">
+            <br><br>
+            <a onclick=@changeShowLoginState style="text-decoration: underline; color: blue;">Register</a>
+        </form>
+    </div>
+}else 
+{
+    <h3>Register Page</h3>
+    <br>
+    <div class="register">
+        <form id="login" method="get" action="login.php">
+            <label>
+                <b>
+                    User Name
+                </b>
+            </label>
+            <input type="text" name="Uname" id="Uname" @bind=usernameRegister placeholder="Username">
+            <br><br>
+            <label>
+                <b>
+                    Password
+                </b>
+            </label>
+            <input type="Password" name="Pass" id="Pass" @bind=passwordRegister placeholder="Password">
+            <br><br>
+            <label>
+                <b>
+                    Email
+                </b>
+            </label>
+            <input type="Email" name="Email" id="Email" @bind=emailRegister placeholder="Email">
+            <br><br>
+            <input onclick=@register type ="button" name="reg" id="reg" value="Register">
+            <br><br>
+            <a onclick=@changeShowLoginState style="text-decoration: underline; color: blue;">Go back</a>
+        </form>
+    </div>
+}

@@ -11,9 +11,16 @@ namespace MovieScout.Pages
         public string json { get; set; }
         [Inject]
         public IMovieDataService MovieDataService { get; set; }
+        [Inject]
+        public UserInfoGlobalClass userGlobal { get; set; }
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
+        
         protected override async Task OnInitializedAsync()
         {
-            List<Movie> m = await MovieDataService.GetFavouritesMovies();
+            if (userGlobal.Token == "")
+                NavigationManager.NavigateTo("/login");
+            List<Movie> m = await MovieDataService.GetFavouritesMovies(userGlobal.Token, userGlobal.Id);
             if (m != null)
                 movies = m;
         }

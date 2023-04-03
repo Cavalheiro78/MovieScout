@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Movies.API.Services;
+using MovieScout.DbContexts;
+using MovieScout.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -8,20 +11,35 @@ using System.Text;
 namespace Movies.API.Controllers
 {
     [ApiController]
-    [Route("api/authentication")]
-    public class AuthenticationController : ControllerBase
+    [Route("api/users")]
+    public class UsersController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly IUserInfoRepository _users;
+        MovieContext _context;
 
-        public AuthenticationController(IConfiguration configuration) 
+        public UsersController(IUserInfoRepository users, IConfiguration configuration, MovieContext context) 
         {
-            _configuration = configuration;
+            _users = users ?? throw new ArgumentNullException(nameof(users));
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+
+        [HttpGet("userid")]
+        public ActionResult<string> GetUserId(string username)
+        {
+            UserEntity user = _context.Users.Where(u => u.Username == username).FirstOrDefault();
+
+            if (user == null)
+                return NotFound();
+
+            return Ok(user.Id);
         }
 
         [HttpPost("authenticate")]
         public ActionResult<string> Authenticate(string username, string password)
         {
-            InfoUser user = ValidateUserCredentials(username, password);
+            UserEntity user = ValidateUserCredentials(username, password);
 
             if (user == null)
                 return Unauthorized();
@@ -39,7 +57,7 @@ namespace Movies.API.Controllers
                 _configuration["Authentication:Audience"],
                 claimsForToken,
                 DateTime.UtcNow,
-                DateTime.UtcNow.AddMonths(2),
+                DateTime.UtcNow.AddHours(2),
                 signingCredentials);
 
             var tokenToReturn = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
@@ -47,28 +65,24 @@ namespace Movies.API.Controllers
             return Ok(tokenToReturn);
         }
 
-        [ApiExplorerSettings(IgnoreApi = true)]
-        private InfoUser ValidateUserCredentials(string? username, string? password)
+        [HttpPost("register")]
+        public ActionResult Register(string username, string password, string email)
         {
-            InfoUser infoUser = new InfoUser(1, "demo", "demo");
+            if (_context.Users.Any(u => u.Username == username))
+                return NoContent();
+            
+            _users.AddUser(username, password, email);
+            return Ok();
+        }
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        private UserEntity ValidateUserCredentials(string? username, string? password)
+        {
+            UserEntity infoUser = _context.Users.Where(c => c.Username == username && c.Password == password).FirstOrDefault();
             if (string.Equals(infoUser.Username, username) && string.Equals(infoUser.Password, password))
                 return infoUser;
 
             return null;
-        }
-        
-        public class InfoUser
-        {
-            public int Id { get; set; }
-            public string Username { get; set; }
-            public string Password { get; set; }
-
-            public InfoUser(int id, string username, string password)
-            {
-                Id = id;
-                Username = username;
-                Password = password;
-            }
         }
 
         public class AuthenticationRequestBody

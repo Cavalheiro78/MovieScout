@@ -14,10 +14,16 @@ namespace MovieScout.Pages
         [Inject]
         public IMovieDataService MovieDataService { get; set; }
         [Inject]
-        private IConfiguration configuration { get; set; }
+        public UserInfoGlobalClass userGlobal { get; set; }
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
+        
         protected override async Task OnInitializedAsync()
         {
-            movie = await MovieDataService.GetMovieDetails(int.Parse(Id));
+            if (userGlobal.Token == "")
+                NavigationManager.NavigateTo("/login");
+
+            movie = await MovieDataService.GetMovieDetails(int.Parse(Id), userGlobal.Token);
 
             for (int i = 0; i < movie.genres.Length; i++) {
                 if (i + 1 == movie.genres.Length)

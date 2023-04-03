@@ -46,6 +46,7 @@ builder.Services.AddCors(options =>
                       });
 });
 builder.Services.AddScoped<IMovieInfoRepository, MovieInfoRepository>();
+builder.Services.AddScoped<IUserInfoRepository, UserInfoRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();

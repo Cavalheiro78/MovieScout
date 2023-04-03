@@ -11,15 +11,20 @@ namespace MovieScout.Pages
         [Inject]
         public IMovieDataService MovieDataService { get; set; }
         [Inject]
-        private IConfiguration configuration { get; set; }
+        public UserInfoGlobalClass userGlobal { get; set; }
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
         private string? searchValue { get; set; }
         private int currentPage { get; set; }
         private Page resultsPage { get; set; }
         private string pagePickerVisibility { get; set; }
         private int inputPageNumber { get; set; }
+        
 
         protected override void OnInitialized()
         {
+            if (userGlobal.Token == "")
+                NavigationManager.NavigateTo("/login");
             pagePickerVisibility = "none";
             inputPageNumber = 1;
         }
@@ -31,7 +36,7 @@ namespace MovieScout.Pages
                 try { 
 
                     currentPage = 1;
-                    resultsPage = await MovieDataService.GetSearchResults(searchValue, 1);
+                    resultsPage = await MovieDataService.GetSearchResults(searchValue, 1, userGlobal.Token);
                     if (resultsPage != null)
                         movies = resultsPage.results;
                 }
@@ -46,7 +51,7 @@ namespace MovieScout.Pages
                 if (resultsPage != null)
                     if(i <= resultsPage.total_results && i >= 1)
                     {
-                        resultsPage = await MovieDataService.GetSearchResults(searchValue, i);
+                        resultsPage = await MovieDataService.GetSearchResults(searchValue, i, userGlobal.Token);
                         movies = resultsPage.results;
                         currentPage = i;
                     }
@@ -59,7 +64,7 @@ namespace MovieScout.Pages
             {
                 if (resultsPage != null)
                     if(resultsPage.page > 1) { 
-                        resultsPage = await MovieDataService.GetSearchResults(searchValue, resultsPage.page-1);
+                        resultsPage = await MovieDataService.GetSearchResults(searchValue, resultsPage.page-1, userGlobal.Token);
                         movies = resultsPage.results;
                         currentPage--;
                     }
@@ -74,7 +79,7 @@ namespace MovieScout.Pages
                 if (resultsPage != null)
                     if (resultsPage.page < resultsPage.total_pages)
                     {
-                        resultsPage = await MovieDataService.GetSearchResults(searchValue, resultsPage.page+1);
+                        resultsPage = await MovieDataService.GetSearchResults(searchValue, resultsPage.page+1, userGlobal.Token);
                         movies = resultsPage.results;
                         currentPage++;
                     }

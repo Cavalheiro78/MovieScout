@@ -14,11 +14,13 @@ namespace MovieScout.Pages.Components
         public string heartClass { get; set; }
         [Inject]
         public IMovieDataService MovieDataService { get; set; }
+        [Inject]
+        public UserInfoGlobalClass userGlobal { get; set; }
         private List<Movie> movies { get; set; } = new List<Movie>();
 
         protected override async Task OnInitializedAsync()
         {
-            List<Movie> m = await MovieDataService.GetFavouritesMovies();
+            List<Movie> m = await MovieDataService.GetFavouritesMovies(userGlobal.Token, userGlobal.Id);
             if (m != null)
                 movies = m;
 
@@ -30,15 +32,15 @@ namespace MovieScout.Pages.Components
             heartClass = heartClass == "fa fa-heart" ? "fa fa-heart-o" : "fa fa-heart";
             try
             {
-                Movie movie = await MovieDataService.GetMovieDetails(id);
+                Movie movie = await MovieDataService.GetMovieDetails(id, userGlobal.Token);
                 if (movie != null)
                 {
                     if (movies != null)
                     {
                         if (movies.Any(m => m.id == movie.id))
-                            MovieDataService.DeleteMovie(movie.id);
+                            MovieDataService.DeleteMovie(movie.id, userGlobal.Token, userGlobal.Id);
                         else
-                            MovieDataService.AddMovie(movie);
+                            MovieDataService.AddMovie(movie, userGlobal.Token, userGlobal.Id);
                     }
                 }
             }
@@ -48,7 +50,7 @@ namespace MovieScout.Pages.Components
         public bool checkIfInFavouritesAsync(int id)
         {
             if (movies != null)
-                if (movies.Any(m => m.id == id))
+                if (movies.Any(m => m.id == id && m.userid == userGlobal.Id))
                     return true;
                 else
                     return false;

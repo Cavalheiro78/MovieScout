@@ -1,4 +1,6 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@implements IDisposable
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">MovieScout</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -9,21 +11,37 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="favorites">
-                <span class="fa fa-heart" aria-hidden="true" style="padding-right: .8rem"></span>Favorites
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="search">
-                <span class="fa fa-search" aria-hidden="true" style="padding-right: .8rem"></span>Search
-            </NavLink>
-        </div>
+        @if (userGlobal.Password != "")
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Home
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="favorites">
+                    <span class="fa fa-heart" aria-hidden="true" style="padding-right: .8rem"></span>Favorites
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="search">
+                    <span class="fa fa-search" aria-hidden="true" style="padding-right: .8rem"></span>Search
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="login" @onclick="@logout">
+                    <span class="fa fa-sign-out" aria-hidden="true" style="padding-right: .8rem"></span>Logout
+                </NavLink>
+            </div>
+        }
+        else
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="login">
+                    <span class="fa fa-sign-in" aria-hidden="true" style="padding-right: .8rem"></span>Login
+                </NavLink>
+            </div>
+        }
     </nav>
 </div>
 

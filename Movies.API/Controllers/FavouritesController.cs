@@ -22,13 +22,14 @@ namespace Movies.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesAsync()
+        public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesAsync(int userid)
         {
-            var movies = await _movies.GetMoviesAsync();
+            IEnumerable<MovieEntity> movies = await _movies.GetMoviesAsync();
+            IEnumerable<MovieEntity> userMovies = movies.Where(m => m.UserId == userid);
             List<Movie> mappedMovies = new List<Movie>();
-            if (movies != null)
+            if (userMovies != null)
             {
-                foreach (var movie in movies)
+                foreach (var movie in userMovies)
                 {
                     mappedMovies.Add(_mapper.Map<Movie>(movie));
                 }
@@ -40,9 +41,9 @@ namespace Movies.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Movie>> GetMovieAsync(int id)
+        public async Task<ActionResult<Movie>> GetMovieAsync(int id, int userid)
         {
-            var movie = await _movies.GetMovieAsync(id);
+            var movie = await _movies.GetMovieAsync(id, userid);
 
             if (movie != null)
                 return Ok(_mapper.Map<Movie>(movie));
@@ -50,15 +51,17 @@ namespace Movies.API.Controllers
             return NotFound();
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Movie>> AddMovieAsync(Movie movie)
+        [HttpPost()]
+        public async Task<ActionResult<Movie>> AddMovieAsync(Movie movie, int userid)
         {
-            if (_movies.MovieExists(movie.id))
+            if (_movies.MovieExists(movie.id, userid))
                 return BadRequest();
 
             if (movie != null)
             {
-                _movies.AddMovie(_mapper.Map<MovieEntity>(movie));
+                MovieEntity movieEntity = _mapper.Map<MovieEntity>(movie);
+                movieEntity.UserId = userid;
+                _movies.AddMovie(movieEntity);
                 return Ok();
             }
                 
@@ -67,12 +70,12 @@ namespace Movies.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Movie>> DeleteMovieAsync(int id)
+        public async Task<ActionResult<Movie>> DeleteMovieAsync(int id, int userid)
         {
-            if (!_movies.MovieExists(id))
+            if (!_movies.MovieExists(id, userid))
                 return NotFound();
 
-            _movies.DeleteMovie(id);
+            _movies.DeleteMovie(id, userid);
 
             return Ok();
         }
